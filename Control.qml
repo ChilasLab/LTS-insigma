@@ -24,11 +24,11 @@ Window {
     id: window
     width: 1435
     minimumWidth: 1435
-    maximumWidth: 1753
+    maximumWidth: 1435
     height: 540
     minimumHeight: 540
     maximumHeight: 540
-    title: "Chilas ATLAS685-2026-V1.19"
+    title: "Chilas ATLAS-2026-V1.19"
     // @disable-check M16
     onClosing: {
         backend.systStat(0)
