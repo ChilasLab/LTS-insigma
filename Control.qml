@@ -28,7 +28,7 @@ Window {
     height: 540
     minimumHeight: 540
     maximumHeight: 540
-    title: "Chilas ATLAS685-2025-V1.18"
+    title: "Chilas ATLAS685-2026-V1.19"
     // @disable-check M16
     onClosing: {
         backend.systStat(0)

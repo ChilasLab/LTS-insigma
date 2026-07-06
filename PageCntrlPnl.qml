@@ -65,7 +65,7 @@ Pane {
 
                         TextInput {
                             id: textIHS1
-                            text: "0"
+                            text: "5"
                             font.pixelSize: 18
                             selectByMouse: true
                         }
@@ -107,20 +107,27 @@ Pane {
 
                             Timer {
                                 id: timerAh
-                                interval: 1
+                                interval: 9
                                 running: false
                                 repeat: true
-                                property int offset: 5
+                                triggeredOnStart: true
+                                property int offset: 85
                                 onTriggered: {
-                                    gaugeHeater1.value = backend.drvD(parseInt(textIHS1.text), ((sliderHeater1.value**2 + offset)**0.5).toFixed(4)).slice(2)
-                                    if (interval == 10){
-                                        stop()
-                                        offset = 5
-                                        interval = 1
+                                    if (offset === 85)
+                                    {
+                                        gaugeHeater1.value = backend.drvD(parseInt(textIHS1.text), ((sliderHeater1.value**2 + offset)**0.5).toFixed(4)).slice(2)
+                                        offset = 45.5
                                     }
-                                    else{
+                                    else if (offset === 45.5)
+                                    {
+                                        gaugeHeater1.value = backend.drvD(parseInt(textIHS1.text), ((sliderHeater1.value**2 + offset)**0.5).toFixed(4)).slice(2)
                                         offset = 0
-                                        interval = 10
+                                    }
+                                    else if (offset === 0)
+                                    {
+                                        gaugeHeater1.value = backend.drvD(parseInt(textIHS1.text), ((sliderHeater1.value**2 + offset)**0.5).toFixed(4)).slice(2)
+                                        offset = 85
+                                        stop()
                                     }
                                 }
                             }
@@ -227,7 +234,7 @@ Pane {
 
                         TextInput {
                             id: textIHS2
-                            text: "1"
+                            text: "4"
                             font.pixelSize: 18
                             selectByMouse: true
                         }
@@ -352,7 +359,7 @@ Pane {
 
                         TextInput {
                             id: textIHS3
-                            text: "2"
+                            text: "3"
                             font.pixelSize: 18
                             selectByMouse: true
                         }
@@ -479,7 +486,7 @@ Pane {
 
                         TextInput {
                             id: textIHS4
-                            text: "3"
+                            text: "0"
                             font.pixelSize: 18
                             selectByMouse: true
                         }

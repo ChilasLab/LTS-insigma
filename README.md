@@ -13,7 +13,7 @@ Chilas ATLAS is an open-source Graphical User Interface that enables laser contr
 
 ## Prerequisites
 
-* Python 3.6.8
+* Python 3.6.8 and 3.8.20 versions are known to work
 
 ## Installation
 

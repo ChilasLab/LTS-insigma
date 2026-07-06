@@ -27,7 +27,7 @@ import pyLaser
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
     app.setApplicationName("Chilas Atlas 685")
-    app.setApplicationVersion("2025-v1.18")
+    app.setApplicationVersion("2026-v1.19")
     app.setOrganizationName("Chilas Lasers B.V.")
     app.setOrganizationDomain("chilasbv.com")
     app.setWindowIcon(QIcon("star.ico"))
