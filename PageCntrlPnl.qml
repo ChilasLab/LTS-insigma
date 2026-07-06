@@ -974,7 +974,7 @@ Pane {
                             stepSize: 1
                             wheelEnabled: true
                             orientation: Qt.Vertical
-                            to: 90
+                            to: 300
                             onValueChanged: {
                                 gaugeCurrent.value = backend.lsrIlev(value.toFixed(2)).slice(2)
                             }
@@ -1002,7 +1002,7 @@ Pane {
                                 anchors.verticalCenter: parent.verticalCenter
                                 font.pixelSize: 18
                                 selectByMouse: true
-                                validator: DoubleValidator{ locale: ""; bottom: 0; top: 90;}
+                                validator: DoubleValidator{ locale: ""; bottom: 0; top: 300;}
                                 onAccepted: {
                                     sliderCurrent.value = text
                                 }
