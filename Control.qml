@@ -22,8 +22,8 @@ import QtQuick.Extras 1.4
 
 Window {
     id: window
-    width: 1753
-    minimumWidth: 1753
+    width: 1435
+    minimumWidth: 1435
     maximumWidth: 1753
     height: 540
     minimumHeight: 540

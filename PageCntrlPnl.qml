@@ -82,7 +82,7 @@ Pane {
                             antialiasing: true
                             value: 0
                             minimumValue: 0
-                            maximumValue: 10
+                            maximumValue: 15
                             tickmarkStepSize: 1
                             minorTickmarkCount: 1
                             Behavior on value { NumberAnimation { duration: 100 } }
@@ -94,7 +94,7 @@ Pane {
                             antialiasing: true
                             wheelEnabled: true
                             stepSize: 0.0001
-                            to: 10.0
+                            to: 15.0
                             orientation: Qt.Vertical
                             value: 0
                             onValueChanged: {
@@ -165,7 +165,7 @@ Pane {
                                 font.pixelSize: 18
                                 cursorVisible: true
                                 selectByMouse: true
-                                validator: DoubleValidator{ locale: ""; top: 10.0; bottom: 0;}
+                                validator: DoubleValidator{ locale: ""; top: 15.0; bottom: 0;}
                                 onAccepted: {
                                     sliderHeater1.value = text
                                 }
@@ -252,7 +252,7 @@ Pane {
                             minimumValue: 0
                             value: sliderHeater2.value
                             minorTickmarkCount: 1
-                            maximumValue: 10
+                            maximumValue: 15
                             Behavior on value { NumberAnimation { duration: 100 } }
                         }
 
@@ -264,7 +264,7 @@ Pane {
                             wheelEnabled: true
                             value: 0
                             orientation: Qt.Vertical
-                            to: 10.0
+                            to: 15.0
                             onValueChanged: {
                                 gaugeHeater2.value = backend.drvD(parseInt(textIHS2.text), value.toFixed(4)).slice(2)
                             }
@@ -291,7 +291,7 @@ Pane {
                                 text: sliderHeater2.value.toFixed(4)
                                 font.pixelSize: 18
                                 selectByMouse: true
-                                validator: DoubleValidator{ locale: ""; bottom: 0; top: 10.0;}
+                                validator: DoubleValidator{ locale: ""; bottom: 0; top: 15.0;}
                                 onAccepted: {
                                     sliderHeater2.value = text
                                 }
@@ -377,7 +377,7 @@ Pane {
                             minimumValue: 0
                             value: sliderHeater3.value
                             minorTickmarkCount: 1
-                            maximumValue: 10
+                            maximumValue: 15
                             Behavior on value { NumberAnimation { duration: 100 } }
                         }
 
@@ -389,7 +389,7 @@ Pane {
                             wheelEnabled: true
                             value: 0
                             orientation: Qt.Vertical
-                            to: 10.0
+                            to: 15.0
                             onValueChanged: {
                                 gaugeHeater3.value = backend.drvD(parseInt(textIHS3.text), value.toFixed(4)).slice(2)
                             }
@@ -416,7 +416,7 @@ Pane {
                                 text: sliderHeater3.value.toFixed(4)
                                 font.pixelSize: 18
                                 selectByMouse: true
-                                validator: DoubleValidator{ locale: ""; bottom: 0; top: 10.0;}
+                                validator: DoubleValidator{ locale: ""; bottom: 0; top: 15.0;}
                                 onAccepted: {
                                     sliderHeater3.value = text
                                 }
@@ -503,7 +503,7 @@ Pane {
                             antialiasing: true
                             value: 0
                             minimumValue: 0
-                            maximumValue: 10
+                            maximumValue: 15
                             tickmarkStepSize: 1
                             minorTickmarkCount: 1
                             Behavior on value { NumberAnimation { duration: 100 } }
@@ -515,7 +515,7 @@ Pane {
                             antialiasing: true
                             wheelEnabled: true
                             stepSize: 0.0001
-                            to: 10.0
+                            to: 15.0
                             orientation: Qt.Vertical
                             value: 0
 
@@ -549,7 +549,7 @@ Pane {
                                 font.pixelSize: 18
                                 cursorVisible: true
                                 selectByMouse: true
-                                validator: DoubleValidator{ locale: ""; top: 10.0; bottom: 0;}
+                                validator: DoubleValidator{ locale: ""; top: 15.0; bottom: 0;}
                                 onAccepted: {
                                     sliderHeater4.value = text
                                 }
@@ -1045,186 +1045,6 @@ Pane {
                                 font.pixelSize: 18
                             }
 
-                        }
-                    }
-                    spacing: 15
-                }
-            }
-
-            Frame {
-                id: framePd0
-                width: 160
-                height: parent.height
-
-                Column {
-                    id: columnPd0
-                    anchors.fill: parent
-
-                    Row {
-                        id: rowHeaderPd0
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: textHeaderPd0.width + textIPd0.width
-
-                        Text {
-                            id: textHeaderPd0
-                            text: "Photodiode "
-                            font.pixelSize: 18
-                        }
-
-                        TextInput {
-                            id: textIPd0
-                            text: "0"
-                            font.pixelSize: 18
-                            selectByMouse: true
-                        }
-
-                        Button {
-                            id: enablePd0
-                            height: 22
-                            text: (checked & switch3.checked) ? "    ıı":"   \u23F5"
-                            leftPadding: 0
-                            antialiasing: true
-                            rightPadding: 0
-                            background: Rectangle {}
-                            checkable: true
-                            checked: true
-                            display: AbstractButton.TextOnly
-                            contentItem: Label {
-                                text: enablePd0.text
-                                color: "black"
-                            }
-                        }
-                    }
-
-                    Row {
-                        id: rowPd0
-                        height: columnPd0.height - textHeaderPd0.height - colSetGetPd0.height - 2*columnPd0.spacing
-
-                        Gauge {
-                            id: gaugePd0
-                            height: parent.height
-                            antialiasing: true
-                            tickmarkStepSize: 100
-                            minimumValue: 0
-                            value: -1
-                            minorTickmarkCount: 1
-                            maximumValue: 1000
-                            Behavior on value { NumberAnimation { duration: 100 } }
-
-                            Timer {
-                                id: timerPd0
-                                interval: 1000; repeat: true; running: switch3.checked & enablePd0.checked
-                                onTriggered: {
-                                    gaugePd0.value = backend.measM(parseInt(textIPd0.text)).slice(2)
-                                }
-                            }
-                        }
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-
-                    Column {
-                        id: colSetGetPd0
-                        width: parent.width
-                        height: 41
-
-                        Row {
-                            id: rowGetPd0
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            Text {
-                                id: textGetPd0
-                                text: "Get: " + gaugePd0.value.toFixed(2) + " µA"
-                                font.pixelSize: 18
-                            }
-                        }
-                    }
-                    spacing: 15
-                }
-            }
-
-            Frame {
-                id: framePd1
-                width: 160
-                height: parent.height
-
-                Column {
-                    id: columnPd1
-                    anchors.fill: parent
-
-                    Row {
-                        id: rowHeaderPd1
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: textHeaderPd1.width + textIPd1.width
-
-                        Text {
-                            id: textHeaderPd1
-                            text: "Photodiode "
-                            font.pixelSize: 18
-                        }
-
-                        TextInput {
-                            id: textIPd1
-                            text: "1"
-                            font.pixelSize: 18
-                            selectByMouse: true
-                        }
-
-                        Button {
-                            id: enablePd1
-                            height: 22
-                            text: (checked & switch3.checked) ? "    ıı":"   \u23F5"
-                            leftPadding: 0
-                            antialiasing: true
-                            rightPadding: 0
-                            background: Rectangle {}
-                            checkable: true
-                            checked: true
-                            display: AbstractButton.TextOnly
-                            contentItem: Label {
-                                text: enablePd1.text
-                                color: "black"
-                            }
-                        }
-                    }
-
-                    Row {
-                        id: rowPd1
-                        height: columnPd1.height - textHeaderPd1.height - colSetGetPd1.height - 2*columnPd1.spacing
-
-                        Gauge {
-                            id: gaugePd1
-                            height: parent.height
-                            antialiasing: true
-                            tickmarkStepSize: 100
-                            minimumValue: 0
-                            value: -1
-                            minorTickmarkCount: 1
-                            maximumValue: 1000
-                            Behavior on value { NumberAnimation { duration: 100 } }
-
-                            Timer {
-                                id: timerPd1
-                                interval: 1000; repeat: true; running: switch3.checked & enablePd1.checked
-                                onTriggered: {
-                                    gaugePd1.value = backend.measM(parseInt(textIPd1.text)).slice(2)
-                                }
-                            }
-                        }
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-
-                    Column {
-                        id: colSetGetPd1
-                        width: parent.width
-                        height: 41
-
-                        Row {
-                            id: rowGetPd1
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            Text {
-                                id: textGetPd1
-                                text: "Get: " + gaugePd1.value.toFixed(2) + " µA"
-                                font.pixelSize: 18
-                            }
                         }
                     }
                     spacing: 15
