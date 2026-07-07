@@ -619,8 +619,8 @@ Pane {
                             antialiasing: true
                             minorTickmarkCount: 3
                             value: 0
-                            maximumValue: 700
-                            minimumValue: 670
+                            maximumValue: 1360
+                            minimumValue: 1260
                             tickmarkStepSize: (maximumValue - minimumValue)/10
                             Behavior on value { NumberAnimation { duration: 100 } }
                             style: GaugeStyle {
