@@ -107,27 +107,20 @@ Pane {
 
                             Timer {
                                 id: timerAh
-                                interval: 9
+                                interval: 1
                                 running: false
                                 repeat: true
-                                triggeredOnStart: true
                                 property int offset: 85
                                 onTriggered: {
-                                    if (offset === 85)
-                                    {
-                                        gaugeHeater1.value = backend.drvD(parseInt(textIHS1.text), ((sliderHeater1.value**2 + offset)**0.5).toFixed(4)).slice(2)
-                                        offset = 45.5
-                                    }
-                                    else if (offset === 45.5)
-                                    {
-                                        gaugeHeater1.value = backend.drvD(parseInt(textIHS1.text), ((sliderHeater1.value**2 + offset)**0.5).toFixed(4)).slice(2)
-                                        offset = 0
-                                    }
-                                    else if (offset === 0)
-                                    {
-                                        gaugeHeater1.value = backend.drvD(parseInt(textIHS1.text), ((sliderHeater1.value**2 + offset)**0.5).toFixed(4)).slice(2)
-                                        offset = 85
+                                    gaugeHeater1.value = backend.drvD(parseInt(textIHS1.text), ((sliderHeater1.value**2 + offset)**0.5).toFixed(4)).slice(2)
+                                    if (interval == 10){
                                         stop()
+                                        offset = 85
+                                        interval = 1
+                                    }
+                                    else{
+                                        offset = 0
+                                        interval = 10
                                     }
                                 }
                             }
@@ -958,7 +951,7 @@ Pane {
                             id: gaugeCurrent
                             height: parent.height
                             antialiasing: true
-                            tickmarkStepSize: 10
+                            tickmarkStepSize: 50
                             minimumValue: 0
                             value: sliderCurrent.value
                             minorTickmarkCount: 3

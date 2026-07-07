@@ -49,7 +49,7 @@ Window {
 
         TabButton {
             id: cntrlPnl
-            text: "Chilas ATLAS 685"
+            text: "Chilas ATLAS"
         }
     }
 
